@@ -40,7 +40,7 @@ Add custom schemas
 
 ## Execution
 
-python ad-eppn.py <eppn|schema> <path to configuration file>
+python ad-eppn.py \<eppn|schema\> \<path to configuration file\> 
 
 
 ## Find your customer ID
