@@ -1,0 +1,155 @@
+# Google customer ID
+customer_id: C04kmvohx
+
+# client secrets file
+csf : ./credentials
+
+# Authorized user json file
+token: ./token.json
+
+# list of scopes to include in the credentials.
+scopes:
+  - https://www.googleapis.com/auth/admin.directory.userschema
+  - https://www.googleapis.com/auth/admin.directory.user
+
+
+schema_name: skolfederation
+
+
+# search_query: Name='Fistname Lastname'
+# search_query: orgUnitPath=/Användare/elever
+search_query: ''
+
+
+# If set, the value scope will be appended to the ePPN prefix.
+# The value must be a registered domain.
+scope: example.com
+
+
+# ePPN will be padded with 0. This is the max allowed length of ePPN
+mlen: 8
+
+
+#List of schemas to be added to the directory
+schemas:
+  - schemaName: skolfederation
+    displayName: Skolfederation
+    fields:
+      - fieldName: eduPersonEntitlement
+        fieldType: STRING
+        displayName: eduPersonEntitlement
+        multiValued: False
+      - fieldName: eduPersonPrincipalName
+        fieldType: STRING
+        displayName: eduPersonPrincipalName
+        multiValued: False
+      - fieldName: norEduOrgNIN
+        fieldType: STRING
+        displayName: norEduOrgNIN
+        multiValued: False
+      - fieldName: norEduPersonBirthDate
+        fieldType: STRING
+        displayName: norEduPersonBirthDate
+        multiValued: False
+      - fieldName: norEduPersonNIN
+        fieldType: STRING
+        displayName: norEduPersonNIN
+        multiValued: False
+      - fieldName: schacGender
+        fieldType: STRING
+        displayName: schacGender
+        multiValued: False
+      - fieldName: sisCivicNoNationality
+        fieldType: STRING
+        displayName: sisCivicNoNationality
+        multiValued: False
+      - fieldName: sisLegalGuardianFor
+        fieldType: STRING
+        displayName: sisLegalGuardianFor
+        multiValued: False
+      - fieldName: sisOrgDepartment
+        fieldType: STRING
+        displayName: sisOrgDepartment
+        multiValued: False
+      - fieldName: sisMiddleName
+        fieldType: STRING
+        displayName: sisMiddleName
+        multiValued: False
+      - fieldName: sisSchoolCareOf
+        fieldType: STRING
+        displayName: sisSchoolCareOf
+        multiValued: False
+      - fieldName: sisSchoolCourseStudent
+        fieldType: STRING
+        displayName: sisSchoolCourseStudent
+        multiValued: False
+      - fieldName: sisSchoolGrade
+        fieldType: STRING
+        displayName: sisSchoolGrade
+        multiValued: False
+      - fieldName: sisSchoolCourseTeacher
+        fieldType: STRING
+        displayName: sisSchoolCourseTeacher
+        multiValued: False
+      - fieldName: sisSchoolPersonSS12kURL
+        fieldType: STRING
+        displayName: sisSchoolPersonSS12kURL
+        multiValued: False
+      - fieldName: sisSchoolType
+        fieldType: STRING
+        displayName: sisSchoolType
+        multiValued: False
+      - fieldName: sisSchoolUnitCode
+        fieldType: STRING
+        displayName: sisSchoolUnitCode
+        multiValued: False
+      - fieldName: sisUnitCodeOther
+        fieldType: STRING
+        displayName: sisUnitCodeOther
+        multiValued: False
+      - fieldName: givenName
+        fieldType: STRING
+        displayName: givenName
+        multiValued: False
+      - fieldName: sn
+        fieldType: STRING
+        displayName: sn
+        multiValued: False
+      - fieldName: displayName
+        fieldType: STRING
+        displayName: displayName
+        multiValued: False
+      - fieldName: street
+        fieldType: STRING
+        displayName: street
+        multiValued: False
+      - fieldName: postalCode
+        fieldType: STRING
+        displayName: postalCode
+        multiValued: False
+      - fieldName: l
+        fieldType: STRING
+        displayName: location
+        multiValued: False
+      - fieldName: c
+        fieldType: STRING
+        displayName: country
+        multiValued: False
+      - fieldName: mail
+        fieldType: STRING
+        displayName: mail
+        multiValued: False
+      - fieldName: telephoneNumber
+        fieldType: STRING
+        displayName: telephoneNumber
+        multiValued: False
+      - fieldName: mobile
+        fieldType: STRING
+        displayName: mobile
+        multiValued: False
+      - fieldName: o
+        fieldType: STRING
+        displayName: organization
+        multiValued: False
+
+
