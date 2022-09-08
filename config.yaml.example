@@ -38,7 +38,7 @@ schemas:
       - fieldName: eduPersonEntitlement
         fieldType: STRING
         displayName: eduPersonEntitlement
-        multiValued: False
+        multiValued: True
       - fieldName: eduPersonPrincipalName
         fieldType: STRING
         displayName: eduPersonPrincipalName
@@ -66,11 +66,11 @@ schemas:
       - fieldName: sisLegalGuardianFor
         fieldType: STRING
         displayName: sisLegalGuardianFor
-        multiValued: False
+        multiValued: True
       - fieldName: sisOrgDepartment
         fieldType: STRING
         displayName: sisOrgDepartment
-        multiValued: False
+        multiValued: True
       - fieldName: sisMiddleName
         fieldType: STRING
         displayName: sisMiddleName
@@ -82,7 +82,7 @@ schemas:
       - fieldName: sisSchoolCourseStudent
         fieldType: STRING
         displayName: sisSchoolCourseStudent
-        multiValued: False
+        multiValued: True
       - fieldName: sisSchoolGrade
         fieldType: STRING
         displayName: sisSchoolGrade
@@ -90,11 +90,11 @@ schemas:
       - fieldName: sisSchoolCourseTeacher
         fieldType: STRING
         displayName: sisSchoolCourseTeacher
-        multiValued: False
+        multiValued: True
       - fieldName: sisSchoolPersonSS12kURL
         fieldType: STRING
         displayName: sisSchoolPersonSS12kURL
-        multiValued: False
+        multiValued: True
       - fieldName: sisSchoolType
         fieldType: STRING
         displayName: sisSchoolType
@@ -102,7 +102,7 @@ schemas:
       - fieldName: sisSchoolUnitCode
         fieldType: STRING
         displayName: sisSchoolUnitCode
-        multiValued: False
+        multiValued: True
       - fieldName: sisUnitCodeOther
         fieldType: STRING
         displayName: sisUnitCodeOther
