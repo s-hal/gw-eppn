@@ -2,7 +2,7 @@
 customer_id: C04kmvohx
 
 # client secrets file
-csf : ./credentials
+csf : ./credentials.json
 
 # Authorized user json file
 token: ./token.json
@@ -13,6 +13,7 @@ scopes:
   - https://www.googleapis.com/auth/admin.directory.user
 
 
+# The name of the custom attributes schema holding the attribute eduPersonPrincipalName
 schema_name: skolfederation
 
 
