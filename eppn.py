@@ -79,6 +79,8 @@ def add_schema(config, service):
 
 def add_eppn(config, service):
     page_token = None
+    high_eppn = ''
+    no_eppn = []
     while True:
         resp = service.users().list(customer=config['customer_id'],
                                        projection='custom',
@@ -89,34 +91,32 @@ def add_eppn(config, service):
         users = resp.get('users', [])
         page_token = resp.get('nextPageToken', None)
         if users:
-            high_eppn = ''
-            no_eppn = []
             for user in users:
-                try:
+                if not user['customSchemas'][config['schema_name']]['eduPersonPrincipalName'].lower().split("@")[0]:
+                    no_eppn.append(user['id'])
+                else:
                     if high_eppn < user['customSchemas'][config['schema_name']]['eduPersonPrincipalName'].lower().split("@")[0]:
                         high_eppn = user['customSchemas'][config['schema_name']]['eduPersonPrincipalName'].lower().split("@")[0]
-                except KeyError:
-                    no_eppn.append(user['id'])
 
-            for u in no_eppn:
-                high_eppn = increase(high_eppn).zfill(config['mlen'])
-                if len(high_eppn) > config['mlen']:
-                    raise ValueError("ePPN exceeds maximum length")
-
-                user_patch_params = {
-                    'userKey': u,
-                    'body': {
-                        'customSchemas': {
-                            config['schema_name']: {
-                                'eduPersonPrincipalName': f"{high_eppn}@{config['scope']}" if 'scope' in config else high_eppn
-                            },
-                        },
-                    },
-                }
-                service.users().patch(**user_patch_params).execute()
         if page_token is None:
             break
 
+    for u in no_eppn:
+        high_eppn = increase(high_eppn).zfill(config['mlen'])
+        if len(high_eppn) > config['mlen']:
+            raise ValueError("ePPN exceeds maximum length")
+
+        user_patch_params = {
+            'userKey': u,
+            'body': {
+                'customSchemas': {
+                    config['schema_name']: {
+                        'eduPersonPrincipalName': f"{high_eppn}@{config['scope']}" if 'scope' in config else high_eppn
+                    },
+                },
+            },
+        }
+        service.users().patch(**user_patch_params).execute()
 
 def main():
     args = get_args()
