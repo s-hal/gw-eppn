@@ -92,11 +92,14 @@ def add_eppn(config, service):
         page_token = resp.get('nextPageToken', None)
         if users:
             for user in users:
-                if not user['customSchemas'][config['schema_name']]['eduPersonPrincipalName'].lower().split("@")[0]:
+                try:
+                    if not user['customSchemas'][config['schema_name']]['eduPersonPrincipalName'].lower().split("@")[0]:
+                        no_eppn.append(user['id'])
+                    else:
+                        if high_eppn < user['customSchemas'][config['schema_name']]['eduPersonPrincipalName'].lower().split("@")[0]:
+                            high_eppn = user['customSchemas'][config['schema_name']]['eduPersonPrincipalName'].lower().split("@")[0]
+                except KeyError:
                     no_eppn.append(user['id'])
-                else:
-                    if high_eppn < user['customSchemas'][config['schema_name']]['eduPersonPrincipalName'].lower().split("@")[0]:
-                        high_eppn = user['customSchemas'][config['schema_name']]['eduPersonPrincipalName'].lower().split("@")[0]
 
         if page_token is None:
             break
